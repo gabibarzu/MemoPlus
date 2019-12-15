@@ -11,6 +11,8 @@ namespace MemoPlus
         {
         }
 
+        public DbSet<Memo> Memos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
