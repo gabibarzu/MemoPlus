@@ -8,5 +8,10 @@ namespace MemoPlus.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public ApplicationUser()
+        {
+            Memos = new List<Memo>();
+        }
+        public ICollection<Memo> Memos { get; set; }
     }
 }
