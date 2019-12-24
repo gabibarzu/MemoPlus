@@ -27,7 +27,7 @@ namespace MemoPlus
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("MemoPlusPlus-DB")));
+                options.UseSqlServer(Configuration.GetConnectionString("MemoPlus-DB")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
