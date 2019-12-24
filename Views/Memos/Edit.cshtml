@@ -5,28 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h2>Edit</h2>
 
-<h4>Memo</h4>
+<h4>Memo number @Model.MemoId</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="MemoId" />
             <div class="form-group">
-                <label asp-for="MemoText" class="control-label"></label>
-                <input asp-for="MemoText" class="form-control" />
+                <label asp-for="MemoText" class="control-label">Memo text</label>
+                <textarea asp-for="MemoText" class="form-control"></textarea>
                 <span asp-validation-for="MemoText" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreationDate" class="control-label"></label>
-                <input asp-for="CreationDate" class="form-control" />
-                <span asp-validation-for="CreationDate" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsFixed" /> @Html.DisplayNameFor(model => model.IsFixed)
+                    <input class="form-check-input" asp-for="IsFixed" /> Pin memo?
                 </label>
             </div>
             <div class="form-group">
