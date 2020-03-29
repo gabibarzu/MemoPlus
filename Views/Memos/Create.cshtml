@@ -16,15 +16,9 @@
                 <textarea asp-for="MemoText" class="form-control"></textarea>
                 <span asp-validation-for="MemoText" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
-                <label asp-for="CreationDate" class="control-label"></label>
-                <input asp-for="CreationDate" class="form-control" />
-                <span asp-validation-for="CreationDate" class="text-danger"></span>
-            </div>*@
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsFixed" /> Pin memo?
-                </label>
+            <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="pinMemo" asp-for="IsFixed">
+                <label class="custom-control-label" for="pinMemo">Pin memo?</label>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-success" />
