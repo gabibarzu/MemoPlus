@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MemoPlus.Models.Memo>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var searchText = @ViewBag.SearchText;
+}
+@{
+    var fixedMemos = Model.Where(m => m.IsFixed == true).OrderByDescending(m => m.CreationDate).ToList();
+    var notFixedMemos = Model.Where(m => m.IsFixed == false).OrderByDescending(m => m.CreationDate).ToList();
+
+    if (fixedMemos.Any() || notFixedMemos.Any())
+    {
+        <h2>Memos results for: <strong>@searchText</strong></h2>
+        <br />
+    }
+    if (fixedMemos.Any())
+    {
+        <h4><i class="fas fa-thumbtack"></i> Fixed memos</h4>
+        <br />
+        <div class="row">
+            @foreach (var fixedMemo in fixedMemos)
+            {
+                <a class="no-effect" asp-action="Details" asp-route-id="@fixedMemo.MemoId">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-12 pb-1">
+                        <div class="card">
+                            <div class="card-body">
+                                <p>@Html.Raw(fixedMemo.MemoText.Replace(searchText, "<strong class=\"text-success\">" + searchText + "</strong>"))</p>
+                                <span class="text-secondary">Created: @fixedMemo.CreationDate</span>
+                            </div>
+                            <div class="card-footer">
+                                <a asp-action="Edit" asp-route-id="@fixedMemo.MemoId">Edit</a> |
+                                <a asp-action="Delete" asp-route-id="@fixedMemo.MemoId">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+        <br />
+        <hr />
+        <br />
+    }
+    if (notFixedMemos.Any())
+    {
+        <div class="row">
+            @foreach (var notFixedMemo in notFixedMemos)
+            {
+                <a class="no-effect" asp-action="Details" asp-route-id="@notFixedMemo.MemoId">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-12 pb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <p>@Html.Raw(notFixedMemo.MemoText.Replace(searchText, "<strong class=\"text-success\">" + searchText + "</strong>"))</p>
+                                <span class="text-secondary">Created: @notFixedMemo.CreationDate</span>
+                            </div>
+                            <div class="card-footer">
+                                <a asp-action="Edit" asp-route-id="@notFixedMemo.MemoId">Edit</a> |
+
+                                <a asp-action="Delete" asp-route-id="@notFixedMemo.MemoId">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    }
+    if (!fixedMemos.Any() && !notFixedMemos.Any())
+    {
+        <h3>Sorry, there is no memo for your search text: <strong>@searchText</strong></h3>
+    }
+}

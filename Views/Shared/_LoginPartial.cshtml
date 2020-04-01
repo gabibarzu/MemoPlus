@@ -6,7 +6,10 @@
 {
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link text-success" asp-controller="Memos" asp-action="Create"><i class="fas fa-plus-circle pr-1"></i> Add memo</a>
+            <form asp-area="" asp-controller="Memos" asp-action="Results" method="get" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchText" required>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
