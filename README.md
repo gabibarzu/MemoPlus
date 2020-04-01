@@ -24,8 +24,6 @@ npm
 ### Database technology & provider
 SQL Server
 
-## Repos and projects
-
 ## Deployment
 
 ### Application
