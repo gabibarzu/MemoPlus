@@ -41,7 +41,10 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - MemoPlus
+            @{
+                var currentDate = DateTime.Now.ToString("yyyy");
+            }
+            &copy; @currentDate - MemoPlus
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
