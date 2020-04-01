@@ -18,19 +18,20 @@
         <div class="row">
             @foreach (var fixedMemo in fixedMemos)
             {
-                <div class="col-lg-4 col-md-4 col-sm-4 col-12 pb-1">
-                    <div class="card">
-                        <div class="card-body">
-                            <p>@fixedMemo.MemoText</p>
-                            <span class="text-secondary">Created: @fixedMemo.CreationDate</span>
-                        </div>
-                        <div class="card-footer">
-                            <a asp-action="Edit" asp-route-id="@fixedMemo.MemoId">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@fixedMemo.MemoId">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@fixedMemo.MemoId">Delete</a>
+                <a class="no-effect" asp-action="Details" asp-route-id="@fixedMemo.MemoId">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-12 pb-1">
+                        <div class="card">
+                            <div class="card-body">
+                                <p>@fixedMemo.MemoText</p>
+                                <span class="text-secondary">Created: @fixedMemo.CreationDate</span>
+                            </div>
+                            <div class="card-footer">
+                                <a asp-action="Edit" asp-route-id="@fixedMemo.MemoId">Edit</a> |
+                                <a asp-action="Delete" asp-route-id="@fixedMemo.MemoId">Delete</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             }
         </div>
         <br />
@@ -42,19 +43,21 @@
         <div class="row">
             @foreach (var notFixedMemo in notFixedMemos)
             {
-                <div class="col-lg-4 col-md-4 col-sm-4 col-12 pb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <p>@notFixedMemo.MemoText</p>
-                            <span class="text-secondary">Created: @notFixedMemo.CreationDate</span>
-                        </div>
-                        <div class="card-footer">
-                            <a asp-action="Edit" asp-route-id="@notFixedMemo.MemoId">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@notFixedMemo.MemoId">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@notFixedMemo.MemoId">Delete</a>
+                <a class="no-effect" asp-action="Details" asp-route-id="@notFixedMemo.MemoId">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-12 pb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <p>@notFixedMemo.MemoText</p>
+                                <span class="text-secondary">Created: @notFixedMemo.CreationDate</span>
+                            </div>
+                            <div class="card-footer">
+                                <a asp-action="Edit" asp-route-id="@notFixedMemo.MemoId">Edit</a> |
+
+                                <a asp-action="Delete" asp-route-id="@notFixedMemo.MemoId">Delete</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             }
         </div>
     }
