@@ -150,6 +150,14 @@ namespace MemoPlus.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // GET: Memos
+        public async Task<IActionResult> Results(string searchText)
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+            ViewBag.SearchText = searchText;
+            return View(await _context.Memos.Where(memo => memo.ApplicationUser == user && memo.MemoText.Contains(searchText)).ToListAsync());
+        }
+
         private bool MemoExists(int id)
         {
             return _context.Memos.Any(e => e.MemoId == id);
