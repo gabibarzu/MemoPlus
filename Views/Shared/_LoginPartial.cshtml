@@ -5,14 +5,19 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link text-success" asp-controller="Memos" asp-action="Create"><i class="fas fa-plus-circle pr-1"></i> Add memo</a>
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 @UserManager.GetUserName(User)
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="dropdown-item">My memo</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="dropdown-item"><i class="fas fa-list pr-1"></i> My memos</a>
+                <a asp-area="" asp-controller="Memos" asp-action="Create" class="dropdown-item text-success"><i class="fas fa-plus-circle pr-1"></i> Create new memo</a>
+                <div class="dropdown-divider"></div>
                 <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
-                    <button type="submit" class="dropdown-item bg-danger text-white">Log out</button>
+                    <button type="submit" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt pr-1"></i> Log out</button>
                 </form>
             </div>
         </li>
@@ -22,10 +27,10 @@ else
 {
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
+            <a class="nav-link text-success" asp-area="" asp-controller="Account" asp-action="Login"><i class="fas fa-sign-in-alt pr-1"></i> Log in</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+            <a class="nav-link text-primary" asp-area="" asp-controller="Account" asp-action="Register"><i class="fas fa-user-circle pr-1"></i> Register</a>
         </li>
     </ul>
 }
