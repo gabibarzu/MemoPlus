@@ -102,3 +102,17 @@ body {
 a:hover {
     text-decoration: none;
 }
+
+.full-memo-text {
+    white-space: pre-line;
+}
+
+.preview-memo-text {
+    min-height: 48px;
+    white-space: pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
