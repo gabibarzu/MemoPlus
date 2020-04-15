@@ -3,7 +3,11 @@
 @inject UserManager<ApplicationUser> UserManager
 @{
     var user = await UserManager.GetUserAsync(User);
-    var themeMode = user.IsDarkMode ? "" : "dark-mode";
+    var themeMode = String.Empty;
+    if (user != null)
+    {
+        themeMode = user.IsDarkMode ? "" : "dark-mode";
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
