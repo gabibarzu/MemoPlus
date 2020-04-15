@@ -11,23 +11,30 @@ namespace MemoPlus.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public MemosController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public MemosController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _context = context;
             _userManager = userManager;
+            _signInManager = signInManager;
+
         }
 
         // GET: Memos
+
         public async Task<IActionResult> Index()
         {
+            if (!_signInManager.IsSignedIn(User)) return RedirectToAction("Login", "Account");
             ApplicationUser user = await _userManager.GetUserAsync(User);
             return View(await _context.Memos.Where(memo => memo.ApplicationUser == user).ToListAsync());
+
         }
 
         // GET: Memos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            if (!_signInManager.IsSignedIn(User)) return RedirectToAction("Login", "Account");
             if (id == null)
             {
                 return NotFound();
@@ -41,11 +48,13 @@ namespace MemoPlus.Controllers
             }
 
             return View(memo);
+
         }
 
         // GET: Memos/Create
         public IActionResult Create()
         {
+            if (!_signInManager.IsSignedIn(User)) return RedirectToAction("Login", "Account");
             return View();
         }
 
@@ -69,6 +78,7 @@ namespace MemoPlus.Controllers
         // GET: Memos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (!_signInManager.IsSignedIn(User)) return RedirectToAction("Login", "Account");
             if (id == null)
             {
                 return NotFound();
@@ -120,6 +130,7 @@ namespace MemoPlus.Controllers
         // GET: Memos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (!_signInManager.IsSignedIn(User)) return RedirectToAction("Login", "Account");
             if (id == null)
             {
                 return NotFound();
@@ -149,6 +160,7 @@ namespace MemoPlus.Controllers
         // GET: Memos
         public async Task<IActionResult> Results(string searchText)
         {
+            if (!_signInManager.IsSignedIn(User)) return RedirectToAction("Login", "Account");
             ApplicationUser user = await _userManager.GetUserAsync(User);
             ViewBag.SearchText = searchText;
             return View(await _context.Memos.Where(memo => memo.ApplicationUser == user && memo.MemoText.Contains(searchText)).ToListAsync());
