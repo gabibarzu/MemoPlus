@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
 namespace MemoPlus.Models
@@ -11,7 +8,9 @@ namespace MemoPlus.Models
         public ApplicationUser()
         {
             Memos = new List<Memo>();
+            IsDarkMode = false;
         }
         public ICollection<Memo> Memos { get; set; }
+        public bool IsDarkMode { get; set; }
     }
 }

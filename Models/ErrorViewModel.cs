@@ -1,5 +1,3 @@
-using System;
-
 namespace MemoPlus.Models
 {
     public class ErrorViewModel
