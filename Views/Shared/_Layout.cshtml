@@ -36,7 +36,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse">
-                    <a class="nav-link text-success" asp-controller="Memos" asp-action="Create"><i class="fas fa-plus-circle pr-1"></i> Add memo</a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a class="nav-link text-success" asp-controller="Memos" asp-action="Create"><i class="fas fa-plus-circle pr-1"></i> Add memo</a>
+                    }
                     <ul class="navbar-nav flex-grow-1">
                     </ul>
                     @await Html.PartialAsync("_LoginPartial")
