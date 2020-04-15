@@ -3,8 +3,13 @@
 @inject UserManager<ApplicationUser> UserManager
 @{
     var user = await UserManager.GetUserAsync(User);
-    var themeMode = user.IsDarkMode ? "white" : "dark";
-    var iconThemeMode = user.IsDarkMode ? "fa-sun" : "fa-moon";
+    var themeMode = String.Empty;
+    var iconThemeMode = String.Empty;
+    if (user != null)
+    {
+        themeMode = user.IsDarkMode ? "white" : "dark";
+        iconThemeMode = user.IsDarkMode ? "fa-sun" : "fa-moon";
+    }
 }
 @if (SignInManager.IsSignedIn(User))
 {
