@@ -1,0 +1,44 @@
+﻿.dark-mode {
+    background-color: #212121;
+}
+
+    .dark-mode .navbar {
+        background-color: #1F1F1F !important;
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .95) !important;
+        border-bottom: 0px !important;
+    }
+
+    .dark-mode .card {
+        background-color: #1F1F1F !important;
+    }
+
+    .dark-mode .footer {
+        background-color: #1F1F1F !important;
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .95) !important;
+        border-top: 0px !important;
+    }
+
+    .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6, .dark-mode p, .dark-mode span, .dark-mode label {
+        color: white !important;
+    }
+
+    .dark-mode hr {
+        border-color: white !important;
+    }
+
+    .dark-mode .navbar-brand, .dark-mode .nav-link:not(.text-success), .dark-mode .dropdown-item:not(.text-danger):not(.text-success) {
+        color: white !important;
+    }
+
+    .dark-mode .dropdown-menu {
+        background-color: #1F1F1F !important;
+    }
+
+    .dark-mode .dropdown-item:focus, .dark-mode .dropdown-item:hover {
+        background-color: #2d3436 !important;
+    }
+
+    .dark-mode input:not(.btn), .dark-mode textarea {
+        background-color: #1F1F1F !important;
+        color: white !important;
+    }

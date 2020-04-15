@@ -1,7 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using MemoPlus.Models
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@{
+    var user = await UserManager.GetUserAsync(User);
+    var themeMode = user.IsDarkMode ? "white" : "dark";
+    var iconThemeMode = user.IsDarkMode ? "fa-sun" : "fa-moon";
+}
 @if (SignInManager.IsSignedIn(User))
 {
     <ul class="navbar-nav mr-auto">
@@ -18,6 +22,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="dropdown-item"><i class="fas fa-list pr-1"></i> My memos</a>
                 <a asp-area="" asp-controller="Memos" asp-action="Create" class="dropdown-item text-success"><i class="fas fa-plus-circle pr-1"></i> Create new memo</a>
+                <a asp-area="" asp-controller="Account" asp-action="ChangeTheme" class="dropdown-item"><i class="fas @iconThemeMode pr-1"></i> Change to @themeMode mode</a>
                 <div class="dropdown-divider"></div>
                 <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
                     <button type="submit" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt pr-1"></i> Log out</button>

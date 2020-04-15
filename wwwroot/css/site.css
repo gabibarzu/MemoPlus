@@ -12,6 +12,10 @@ a {
     color: #0366d6;
 }
 
+    a:hover {
+        text-decoration: none;
+    }
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
@@ -53,26 +57,27 @@ button.accept-policy {
     line-height: inherit;
 }
 
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
+
 html {
     position: relative;
     min-height: 100%;
 }
 
 body {
-    /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
-}
-
+/* Dropdown styles
+-------------------------------------------------- */
 .dropdown-item, .nav-link {
     transition: 0.3s ease;
 }
@@ -80,7 +85,11 @@ body {
     .dropdown-item:active {
         color: white !important;
     }
+/* Dropdown styles
+-------------------------------------------------- */
 
+/* Memo cards styles
+-------------------------------------------------- */
 .card {
     transition: 0.3s ease;
 }
@@ -99,10 +108,6 @@ body {
         text-decoration: none;
     }
 
-a:hover {
-    text-decoration: none;
-}
-
 .full-memo-text {
     white-space: pre-line;
 }
@@ -116,3 +121,5 @@ a:hover {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+/* Memo cards styles
+-------------------------------------------------- */

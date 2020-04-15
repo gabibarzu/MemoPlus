@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MemoPlus.Models;
 using MemoPlus.Models.AccountViewModels;
 using Microsoft.AspNetCore.Authentication;
@@ -123,6 +120,16 @@ namespace MemoPlus.Controllers
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ChangeTheme()
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+            user.IsDarkMode = !user.IsDarkMode;
+            await _userManager.UpdateAsync(user);
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
