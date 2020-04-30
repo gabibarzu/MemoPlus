@@ -10,6 +10,7 @@ namespace MemoPlus.Models
             IsFixed = false;
         }
         public int MemoId { get; set; }
+        public string MemoTitle { get; set; }
         public string MemoText { get; set; }
         public DateTime CreationDate { get; set; }
         public bool IsFixed { get; set; }

@@ -112,6 +112,17 @@ body {
     white-space: pre-line;
 }
 
+.preview-memo-title {
+    margin: 5px 0;
+    font-weight: 700;
+    white-space: pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
 .preview-memo-text {
     min-height: 48px;
     white-space: pre-line;
