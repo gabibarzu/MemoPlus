@@ -25,6 +25,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-4 col-12 pb-1">
                         <div class="card">
                             <div class="card-body">
+                                <h5 class="preview-memo-title">@fixedMemo.MemoTitle</h5>
                                 <p class="preview-memo-text">@Html.Raw(fixedMemo.MemoText.Replace(searchText, "<strong class=\"text-success\">" + searchText + "</strong>"))</p>
                                 <span class="text-secondary">Created: @fixedMemo.CreationDate</span>
                             </div>
@@ -50,12 +51,12 @@
                     <div class="col-lg-4 col-md-4 col-sm-4 col-12 pb-3">
                         <div class="card">
                             <div class="card-body">
+                                <h5 class="preview-memo-title">@notFixedMemo.MemoTitle</h5>
                                 <p class="preview-memo-text">@Html.Raw(notFixedMemo.MemoText.Replace(searchText, "<strong class=\"text-success\">" + searchText + "</strong>"))</p>
                                 <span class="text-secondary">Created: @notFixedMemo.CreationDate</span>
                             </div>
                             <div class="card-footer">
                                 <a asp-action="Edit" asp-route-id="@notFixedMemo.MemoId">Edit</a> |
-
                                 <a asp-action="Delete" asp-route-id="@notFixedMemo.MemoId">Delete</a>
                             </div>
                         </div>
