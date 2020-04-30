@@ -63,7 +63,7 @@ namespace MemoPlus.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MemoId,MemoText,CreationDate,IsFixed")] Memo memo)
+        public async Task<IActionResult> Create([Bind("MemoId,MemoTitle,MemoText,CreationDate,IsFixed")] Memo memo)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace MemoPlus.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MemoId,MemoText,CreationDate,IsFixed")] Memo memo)
+        public async Task<IActionResult> Edit(int id, [Bind("MemoId,MemoTitle,MemoText,CreationDate,IsFixed")] Memo memo)
         {
             if (id != memo.MemoId)
             {
