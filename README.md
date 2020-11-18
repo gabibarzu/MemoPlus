@@ -33,8 +33,12 @@ SQL Server
 ```
 update-database
 ```
-3. Run project
+3. Install dependecies
 ```
-cd memoplus
+npm install
+```
+4. Run project
+```
+cd dealertshop
 dotnet run
 ```
