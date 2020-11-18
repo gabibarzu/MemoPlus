@@ -3,6 +3,11 @@ This application was designed to store memo for each of his users.
 
 [See the project live](https://memoplus.azurewebsites.net/)
 
+# MemoPlus
+This application was designed to store memo for each of his users.
+
+[See the project live](https://memoplus.azurewebsites.net/)
+
 ## Contributing
 This project was used to try new frameworks
 
@@ -33,12 +38,8 @@ SQL Server
 ```
 update-database
 ```
-3. Install dependecies
+3. Run project
 ```
-npm install
-```
-4. Run project
-```
-cd dealertshop
+cd memoplus
 dotnet run
 ```
